@@ -1,0 +1,7 @@
+#When a scanner is not found in Windows Scanner or it complains that no WIA device was found, stop and start the following process in services.msc and try again:
+Windows Image Acquisition (WIA)
+
+##############################################
+#Windows Click and Drag Stopped Working:
+##############################################
+When can't drag and drop due to weird but, left click something in explorer, press escape and hold it, then release left click, then release escape and it should work.
