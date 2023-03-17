@@ -1,0 +1,2 @@
+#Add the following line to Config.wtf to prevent Windows Aero crashing in Windows 7 when playing WoW:
+SET ForceAllowAero "1"
