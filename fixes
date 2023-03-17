@@ -1,5 +1,11 @@
-#Here are assorted fixes for issues that usually do not involve CLI or scripts:
+#Restart Windows 7 Aero after a crash:
+net stop uxsms
+net start uxsms
 
-#When a scanner is not found in Windows Scanner or it complains that no WIA device was found, stop and start the following process in services.msc and try again: Windows Image Acquisition (WIA)
+#Add the following line to Config.wtf to prevent Windows Aero crashing in Windows 7 when playing WoW:
+SET ForceAllowAero "1"
+
+#When a scanner is not found in Windows Scanner or it complains that no WIA device was found, stop and start the following process in services.msc and try again:
+Windows Image Acquisition (WIA)
 
 #When can't drag and drop on Windows due to weird bug, left click something in explorer, press escape and hold it, then release left click, then release escape and it should work.
