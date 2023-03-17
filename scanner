@@ -1,0 +1,2 @@
+#When a scanner is not found in Windows Scanner or it complains that no WIA device was found, stop and start the following process in services.msc and try again:
+Windows Image Acquisition (WIA)
