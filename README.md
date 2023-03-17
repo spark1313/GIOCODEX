@@ -8,7 +8,7 @@ This is an assorted collection of scripts and CLI copy pastas for easy reference
 ### [GioRenamer](GioRenamer.py)
 * Details
 
-### [Example 1](Example1)
+### [fileSizeCompare](fileSizeCompare.bat)
 * Details
 
 
