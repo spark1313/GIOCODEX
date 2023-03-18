@@ -1,5 +1,5 @@
 # Summary:
-This is an assorted collection of scripts and CLI copy pastas all in one place for easy reference:
+This is a collection of scripts and CLI copy pastas all in one place for easy reference:
 
 # Scripts:
 ### [GIOLED](GIOLED.py)
