@@ -8,7 +8,6 @@
   #The script can easily be called by a cron job that runs every minute
 
 #Future plans:
-#Functionize the time slice to use a variable
 #Maybe use curl or requests to get a color variable from my website, sanitize the input, then change to that color instead of just red/green if the variable was found
  #The website colors could also be controlled from a button on the page and/or discord API
  #Could also change state from pinging internal resources so that each server has a color and if that one has issues change to that color LED like color code errors for certain outages, DNS, high CPU, high fans, high power usage, etc.
@@ -55,15 +54,18 @@ def setColorAndFlash(c):
 #Check if the current time fits into a certain time window:
 def ITSTIME(b):
 	#Define the start and end times in clock-style military time then convert to seconds
-	startTimeWindow = "13:13"
-	endTimeWindow = "13:14"
-	startTimeInSeconds = int(startTimeWindow[0:2]) * 3600 + int(startTimeWindow[-2:]) * 60
-	endTimeInSeconds = int(endTimeWindow[0:2]) * 3600 + int(endTimeWindow[-2:]) * 60
-	#Define the current time in epoch time (in seconds) and calculate the number of seconds since midnight for today's time representation in seconds
-	currentLocalTime = time.localtime()
-	secondsSinceMidnight = currentLocalTime.tm_hour * 3600 + currentLocalTime.tm_min * 60 + currentLocalTime.tm_sec
-	#If the time fits within a certain window, return True else False
-	if startTimeInSeconds <= secondsSinceMidnight <= endTimeInSeconds:
+	startTimeWindow = ["13:13", "23:11"]
+	endTimeWindow = ["13:14", "23:13"]
+	for i in range len(startTimeWindow):
+		startTimeInSeconds = int(startTimeWindow[i][0:2]) * 3600 + int(startTimeWindow[i][-2:]) * 60
+		endTimeInSeconds = int(endTimeWindow[i][0:2]) * 3600 + int(endTimeWindow[i][-2:]) * 60
+		#Define the current time in epoch time (in seconds) and calculate the number of seconds since midnight for today's time representation in seconds
+		currentLocalTime = time.localtime()
+		secondsSinceMidnight = currentLocalTime.tm_hour * 3600 + currentLocalTime.tm_min * 60 + currentLocalTime.tm_sec
+		#If the time fits within a certain window, return True else False
+		if startTimeInSeconds[i] <= secondsSinceMidnight <= endTimeInSeconds[i]:
+			timeWithinRange = True
+	if timeWithinRange == True:
 		return True
 	else:
 		return False
@@ -147,7 +149,7 @@ else:
 		#If the state is already red
 		if "red" in logdata:
 			#If the time matches the specified value slice, set the color to red, else do nothing
-            		#This is done to refresh the correct LED color once a day via cron because over time the LEDs sometimes randomly change colors or turn off
+			#This is done to refresh the correct LED color once a day via cron because over time the LEDs sometimes randomly change colors or turn off
 			if ITSTIME(True):
 				setcolor(redColorValue)
 			else:
