@@ -55,15 +55,16 @@ def setColorAndFlash(c):
 def ITSTIME(b):
 	#Define the start and end times in clock-style military time then convert to seconds
 	startTimeWindow = ["13:13", "23:11"]
-	endTimeWindow = ["13:14", "23:13"]
-	for i in range len(startTimeWindow):
+	endTimeWindow = ["13:15", "23:13"]
+	timeWithinRange = False
+	for i in range(len(startTimeWindow)):
 		startTimeInSeconds = int(startTimeWindow[i][0:2]) * 3600 + int(startTimeWindow[i][-2:]) * 60
 		endTimeInSeconds = int(endTimeWindow[i][0:2]) * 3600 + int(endTimeWindow[i][-2:]) * 60
 		#Define the current time in epoch time (in seconds) and calculate the number of seconds since midnight for today's time representation in seconds
 		currentLocalTime = time.localtime()
 		secondsSinceMidnight = currentLocalTime.tm_hour * 3600 + currentLocalTime.tm_min * 60 + currentLocalTime.tm_sec
 		#If the time fits within a certain window, return True else False
-		if startTimeInSeconds[i] <= secondsSinceMidnight <= endTimeInSeconds[i]:
+		if startTimeInSeconds <= secondsSinceMidnight <= endTimeInSeconds:
 			timeWithinRange = True
 	if timeWithinRange == True:
 		return True
