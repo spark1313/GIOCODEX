@@ -14,3 +14,15 @@ Left click something in explorer, press escape and hold it, then release left cl
 #Windows Clear Stuck SMB Share:
 Open cmd and type "net use" to view sessions and identify the stuck one
 Delete it with "net use \\server\share /delete" and then try to remap the share
+
+#Unraid VM Clone Process:
+-Change VMs share to read-write
+-Create new VM, mimicing the settings of the VM you want to clone and do not select an install ISO
+-Shut down source VM
+-In the new VM storage folder, overwrite the vdisk1.img with the one from the VM you want to copy
+-Side-by-side the VM settings in XML mode and note the nvram filename after <nvram> in each one
+ -Example: /etc/libvirt/qemu/nvram/###########OLD#############_VARS-pure-efi.fd
+-Open a shell and copy the nvram from the old VM into the target VM
+ -Example: cp /etc/libvirt/qemu/nvram/###########OLD#############_VARS-pure-efi.fd /etc/libvirt/qemu/nvram/###########NEW#############_VARS-pure-efi.fd
+-Boot up the new VM
+-Revert VMs share to read-only
