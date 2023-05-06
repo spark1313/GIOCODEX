@@ -24,6 +24,11 @@ This is a collection of scripts and CLI copy pastas all in one place for easy re
 ### [fileSizeCompare](fileSizeCompare.bat)
 * This is a Batch script which prints a list of file names in a directory and all contained subdirectories which have identical file sizes to other files in those directories/subdirectories so essentially a deduplication discovery
 
+### [PullContent](PullContent.js)
+* This is an HTML and JavaScript code snipped which pulls content from an external file and embeds it in the page
+
+### [LastUpdatedJSDate](LastUpdatedJSDate.js)
+* This is an HTML and JavaScript code snippet which pulls the last updated date of an external file and embeds it in the page
 
 # CLI:
 ### [Robocopy](Robocopy.cmd)
