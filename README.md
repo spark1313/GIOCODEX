@@ -1,7 +1,28 @@
 # Summary:
-This is a collection of scripts and CLI copy pastas all in one place for easy reference:
+This is the Codex of The Giomancer and you're reading the Table of Contents.
 
-# Scripts:
+
+# Chapter 1: Spellcraft
+Giomancy spellcraft containing an assortment of knowledge and documented solutions to issues for reference. They say that forum posts eventually get lost in the ether one day...but grimoires are eternal.
+
+### [Fixes](Fixes)
+* Here are assorted fixes for issues that usually do not involve CLI or scripts
+
+
+# Chapter 2: Copy Pasta
+Collection of useful CLI Copy Pastas for quick reference so I don't have to go read the man page and reinvent them again. Yum! Didn't think this was a cookbook, did you?
+
+### [Renaming](Renaming.sh)
+* Linux CLI to selectively rename groups of files
+### [Smart Testing](smart.sh)
+* Linux CLI using smartctl to check drive SMART stats and run tests
+### [Drive Wiping with dd](dd.sh)
+* Linux CLI using dd to wipe a drive and verify
+
+
+# Chapter 3: Scripture
+Incantations crafted and written into these pages may be read to expedite manual invocation of individual fragments of Giomancy. Different schools of Giomancy have their own sections.
+
 ### [GIOLED](GIOLED.py)
 * This is a multi-purpose Python script to control an LED strip (WS2812B) ran off a Raspberry Pi via GPIO pins
   * If ran with a single argument of a color name, it changes the LED strip to that color
@@ -30,18 +51,10 @@ This is a collection of scripts and CLI copy pastas all in one place for easy re
 ### [LastUpdatedJSDate](LastUpdatedJSDate.js)
 * This is an HTML and JavaScript code snippet which pulls the last updated date of an external file and embeds it in the page
 
-# CLI:
 ### [Robocopy](Robocopy.cmd)
 * Windows CLI using robocopy to selectively sync files between drives and NAS on Windows
    * The parameters have been optimized for best compatibility with Windows 7 and Unraid which handle attribute and security issues
-### [Renaming](Renaming.sh)
-* Linux CLI to selectively rename groups of files
-### [Smart Testing](smart.sh)
-* Linux CLI using smartctl to check drive SMART stats and run tests
-### [Drive Wiping with dd](dd.sh)
-* Linux CLI using dd to wipe a drive and verify
 
 
-# Fixes:
-### [Fixes](Fixes)
-* Here are assorted fixes for issues that usually do not involve CLI or scripts
+# Chapter 4: Infrastructure as Code
+So let it be written, so let it be done. Sourcery inscribed into these pages shall be materialized elsewhere.
