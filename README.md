@@ -3,7 +3,7 @@ You have uncovered the Codex of The Giomancer and you're reading the Table of Co
 
 
 # Chapter 1: Spellcraft
-Giomancy spellcraft containing an assortment of knowledge and documented solutions to issues for reference. They say that forum posts eventually get lost in the ether one day...but grimoires are eternal.
+Giomancy spellcraft containing an assortment of knowledge and documented solutions to issues for reference. They say that forum posts eventually get lost in the ether one day...but codices are eternal.
 
 ### [Fixes](Spellcraft/Fixes)
 * Here are assorted fixes for issues that usually do not involve CLI or scripts
