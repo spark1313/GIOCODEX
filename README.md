@@ -10,7 +10,7 @@ Giomancy spellcraft containing an assortment of knowledge and documented solutio
 
 
 # Chapter 2: Pasta
-Collection of useful CLI Copy Pastas for quick reference so I don't have to go read the man page and reinvent them again. Yum! Didn't think this was a cookbook, did you?
+Collection of useful CLI Copy Pastas for quick reference so I don't have to go read the man page and reinvent them again. Yum! Didn't think this was also a cookbook, did you?
 
 ### [Renaming](Renaming.sh)
 * Linux CLI to selectively rename groups of files
