@@ -9,7 +9,7 @@ Giomancy spellcraft containing an assortment of knowledge and documented solutio
 * Here are assorted fixes for issues that usually do not involve CLI or scripts
 
 
-# Chapter 2: Copy Pasta
+# Chapter 2: Pasta
 Collection of useful CLI Copy Pastas for quick reference so I don't have to go read the man page and reinvent them again. Yum! Didn't think this was a cookbook, did you?
 
 ### [Renaming](Renaming.sh)
