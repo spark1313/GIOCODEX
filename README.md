@@ -60,4 +60,4 @@ Incantations crafted and written into these pages may be read to expedite manual
 So let it be written, so let it be done. Sourcery inscribed into these pages shall be materialized elsewhere as infrastructure.
 
 ### [Diary](diary.txt)
-* The adventures of my first apprentice are written into this section as they began to dabble into sourcery.
+* The adventures of my first apprentice are written into this section as they began to dabble into spellcraft.
