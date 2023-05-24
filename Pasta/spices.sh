@@ -1,5 +1,17 @@
+#Run a command in the background:
+<command> &
+
+#Run one command onlt and after another finishes:
+<command1> && <command2>
+
+#Combination of above two:
+$(command1 && command2) &
+
 #Run a command but continue running even if disconnected, with all output sent to nohup.out in the local directory"
 nohup <command>
+
+#Run a nohup command in the background:
+nohup <command> &
 
 #Follow a log file line-by-line as it is generated
 tail -f file.log
@@ -18,6 +30,9 @@ alias roflcopter="echo soisoisoisoisoi"
 
 #Make a symlink:
 ln -s /path/where/shortcut/goes shortcut
+
+#Rsync push to transfer files between Linux systems or Windows and Linux via SSH:
+rsync -vP --rsh=ssh <filename>.<extension> <target username>@<target hostname>:/path/to/target/directory/<filename>.<extension>
 
 #Shell hotkeys:
 #Go to beginning of line:
