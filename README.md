@@ -5,20 +5,21 @@ You have uncovered the Codex of The Giomancer and you're reading the Table of Co
 # Chapter 1: Spellcraft
 Giomancy spellcraft containing an assortment of knowledge and documented solutions to issues for reference. They say that forum posts eventually get lost in the ether one day...but codices are eternal.
 
-### [Fixes](Spellcraft/Fixes)
-* Here are assorted fixes for issues that usually do not involve CLI or scripts
+### [Spellcraft.txt](Spellcraft.txt)
 
 
 # Chapter 2: Pasta
 Collection of useful CLI Copy Pastas for quick reference so I don't have to go read the man page and reinvent them again. Yum! Didn't think this was also a cookbook, did you?
 
-### [Renaming](Pasta/Renaming.sh)
+### [Spices](Pasta/spices.sh)
+* Assortment of useful commands but not significant enough to be in their own listing
+### [Renaming](Pasta/renaming.sh)
 * Linux CLI to selectively rename groups of files
 ### [Smart Testing](Pasta/smart.sh)
 * Linux CLI using smartctl to check drive SMART stats and run tests
-### [Drive Wiping with dd](Pasta/dd.sh)
+### [Drive Wiping with dd](Pasta/zero.sh)
 * Linux CLI using dd to wipe a drive and verify
-### [SearchAndDestroy](Pasta/SearchAndDestroy.sh)
+### [SearchAndDestroy](Pasta/searchAndDestroy.sh)
 * Find files of a certain criteria and delete them
 
 # Chapter 3: Scripture
