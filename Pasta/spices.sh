@@ -7,8 +7,11 @@ tail -f file.log
 #Download something from the web (with the optional -O argument to specify a different filename for the downloaded file)
 wget -O notavirus.zip.jpg.exe https://URL.domain/file.zip --progress=bar:force:noscroll
 
-Where yum repos are located:
+#Where yum repos are located:
 /etc/yum.repos.d
+
+#Find that one thing you typed that one time but only vaguely remember part of it:
+history | grep keyword
 
 #Make an alias: (add these in your shell's source file such as /etc/profile for all users bash)
 alias roflcopter="echo soisoisoisoisoi"
