@@ -18,7 +18,8 @@ Collection of useful CLI Copy Pastas for quick reference so I don't have to go r
 * Linux CLI using smartctl to check drive SMART stats and run tests
 ### [Drive Wiping with dd](Pasta/dd.sh)
 * Linux CLI using dd to wipe a drive and verify
-
+### [SearchAndDestroy](Pasta/SearchAndDestroy.sh)
+* Find files of a certain criteria and delete them
 
 # Chapter 3: Scripture
 Incantations crafted and written into these pages may be read to expedite manual invocation of individual fragments of Giomancy. Different schools of Giomancy have their own sections.
