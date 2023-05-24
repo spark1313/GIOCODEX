@@ -1,18 +1,16 @@
 # Summary:
 You have uncovered the Codex of The Giomancer and you're reading the Table of Contents.
 
-
 # Chapter 1: Spellcraft
 Giomancy spellcraft containing an assortment of knowledge and documented solutions to issues for reference. They say that forum posts eventually get lost in the ether one day...but codices are eternal.
 
 ### [Spellcraft.txt](Spellcraft.txt)
 
-
 # Chapter 2: Pasta
 Collection of useful CLI Copy Pastas for quick reference so I don't have to go read the man page and reinvent them again. Yum! Didn't think this was also a cookbook, did you?
 
 ### [Spices](Pasta/spices.sh)
-* Assortment of useful commands but not significant enough to be in their own listing
+* Assortment of useful commands to spice things up but not significant enough to be in their own listing
 ### [Renaming](Pasta/renaming.sh)
 * Linux CLI to selectively rename groups of files
 ### [Smart Testing](Pasta/smart.sh)
@@ -56,7 +54,6 @@ Incantations crafted and written into these pages may be read to expedite manual
 ### [Robocopy](Scripture/CMD/Robocopy.cmd)
 * Windows CLI using robocopy to selectively sync files between drives and NAS on Windows
    * The parameters have been optimized for best compatibility with Windows 7 and Unraid which handle attribute and security issues
-
 
 # Chapter 4: Sourcery
 So let it be written, so let it be done. Sourcery inscribed into these pages shall be materialized elsewhere as infrastructure.
