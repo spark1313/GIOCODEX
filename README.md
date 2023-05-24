@@ -1,5 +1,5 @@
 # The Codex of The Giomancer:
-You have uncovered the Codex of The Giomancer and you're reading the Table of Contents.
+You have uncovered the Codex of The Giomancer! Rumor says the hidden knowledge that lies within rival even that of the Install Wizard. This is the Table of Contents.
 
 # Chapter 1: Spellcraft
 Giomancy spellcraft containing an assortment of knowledge and documented solutions to issues for reference. They say that forum posts eventually get lost in the ether one day...but codices are eternal.
