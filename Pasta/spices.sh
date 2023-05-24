@@ -5,7 +5,7 @@ nohup <command>
 tail -f file.log
 
 #Download something from the web (with the optional -O argument to specify a different filename for the downloaded file)
-wget -O newname.zip https://URL.domain/file.zip --progress=bar:force:noscroll
+wget -O notavirus.zip.jpg.exe https://URL.domain/file.zip --progress=bar:force:noscroll
 
 #Shell hotkeys:
 #Go to beginning of line:
