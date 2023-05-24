@@ -1,4 +1,4 @@
-# Summary:
+# The Codex of The Giomancer:
 You have uncovered the Codex of The Giomancer and you're reading the Table of Contents.
 
 # Chapter 1: Spellcraft
