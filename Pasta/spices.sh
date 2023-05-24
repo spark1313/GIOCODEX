@@ -7,6 +7,15 @@ tail -f file.log
 #Download something from the web (with the optional -O argument to specify a different filename for the downloaded file)
 wget -O notavirus.zip.jpg.exe https://URL.domain/file.zip --progress=bar:force:noscroll
 
+Where yum repos are located:
+/etc/yum.repos.d
+
+#Make an alias: (add these in your shell's source file such as /etc/profile for all users bash)
+alias roflcopter="echo soisoisoisoisoi"
+
+#Make a symlink:
+ln -s /path/where/shortcut/goes shortcut
+
 #Shell hotkeys:
 #Go to beginning of line:
 ctrl+a
