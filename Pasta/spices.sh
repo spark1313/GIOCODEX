@@ -37,6 +37,14 @@ rsync -vP --rsh=ssh <filename>.<extension> <target username>@<target hostname>:/
 #Do math in the terminal so you dont have to open a calculator to do quick math: (make sure you put spaces between the numbers)
 expr 13 + 13
 
+#Print file list:
+ls | awk ' {print $NF}'
+
+#Compute hashes in Windows:
+certutil -hashfile file_name SHA512
+
+
+
 #Shell hotkeys:
 #Go to beginning of line:
 ctrl+a
