@@ -1,5 +1,5 @@
-robocopy "C:\source" "D:\destination" /MIR /FFT /XJD /R:3 /W:1 /V /FP /X /NP /ETA /TEE /COPY:DT /DCOPY:T /LOG+:"C:\Users\%USERNAME%\Desktop\Robocopy-Backup-Log-%date:~4,2%.%date:~7,2%.%date:~10,4%".txt
 #Note: Parameters were chosen for best compatibility with Unraid and Windows 7
+robocopy "C:\source" "D:\destination" /MIR /FFT /XJD /R:3 /W:1 /V /FP /X /NP /ETA /TEE /COPY:DT /DCOPY:T /LOG+:"C:\Users\%USERNAME%\Desktop\Robocopy-Backup-Log-%date:~4,2%.%date:~7,2%.%date:~10,4%".txt
 
 #Explanation of potential useful flags:
 # /MIR :: Mirror a directory tree, equivalent to /E (Copy subdirectories, including the empty ones.) plus /PURGE (Delete dest files/dirs that no longer exist in the source.)
