@@ -1,8 +1,8 @@
 #First mount the drive:
-sudo mount -t cifs -o username=spark1313 //archavon/stonewatcher /mnt/stonewatcher
+sudo mount -t cifs -o username=usernamegoeshere //hostname/sharename /mnt/sharename
 
 #Note: Parameters were chosen for best compatibility with Unraid backup syncing
-sudo rsync -Phav --delete --size-only --stats --rsh=ssh /mnt/stonewatcher/backup-source/ /mnt/icewatcher/backup-target/ --log-file=/mnt/rsync-log-"$(date +%F)".log
+sudo rsync -Phav --delete --size-only --stats --rsh=ssh /mnt/sharename1/backup-source/ /mnt/sharename2/backup-target/ --log-file=/mnt/rsync-log-"$(date +%F)".log
 
 #Explanation of potential useful flags:
 #-a, --archive :: This is equivalent to -rlptgoD. It is a quick way of saying you want recursion and want to preserve almost everything (with -H being a notable omission). The only exception to the above equivalence is when --files-from is specified, in which case -r is not implied. Note that -a does not preserve hardlinks, because finding multiply-linked files is expensive. You must separately specify -H.
