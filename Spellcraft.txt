@@ -11,7 +11,15 @@ Windows Image Acquisition (WIA)
 #When can't drag and drop on Windows due to weird bug:
 Left click something in explorer, press escape and hold it, then release left click, then release escape and it should work.
 
-#Windows Clear Stuck SMB Share:
+#When any newly connected USB devices are causing unrecognized errors which usually requires a reboot and you don't have a keyboard or mouse connected to reboot but want to save your work:
+Connect over RDP
+Save your work
+Reboot via CMD:
+shutdown /r
+If you have running processes which usually don't shut properly themselves down gracefully and hang, requiring clicking the force kill button that pops up, do a forced reboot:
+shutdown /rf
+
+#Windows Clear Stuck SMB Share Without Rebooting:
 Open cmd and type "net use" to view sessions and identify the stuck one
 Delete it with "net use \\server\share /delete" and then try to remap the share
 
