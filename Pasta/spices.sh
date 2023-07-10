@@ -75,6 +75,12 @@ readlink -f $(which java)
 #Switch Java version if more than one version installed on the OS:
 update-alternatives --config java
 
+#Show datestamps for commands in history:
+vi /etc/profile
+Add this environment variable line: HISTTIMEFORMAT="%Y/%m/%d-%T: "
+source /etc/profile
+
+
 
 
 #Shell hotkeys:
