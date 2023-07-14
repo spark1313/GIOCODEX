@@ -80,6 +80,9 @@ vi /etc/profile
 Add this environment variable line: HISTTIMEFORMAT="%Y/%m/%d-%T: "
 source /etc/profile
 
+#Run a mysql query from Bash CLI via database user with password auth:
+mysql -u dbusername -p -D dbname -e 'SELECT * FROM table WHERE column IS condition OR othercolumn != value > output.txt
+
 
 
 
