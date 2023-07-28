@@ -66,6 +66,9 @@ pg_upgrade \
 sudo su postgres
 pg_dump databasenamegoeshere > databasenamegoeshere-backup-YY.MM.DD.sql
 
+#Export a PostgreSQL database table to CSV:
+COPY table_name TO '/directory/path/file.csv' WITH DELIMITER ',' CSV HEADER;
+
 #Enable a versioned software in Amazon Linux:
 amazon-linux-extras enable postgresql14
 
@@ -81,7 +84,12 @@ Add this environment variable line: HISTTIMEFORMAT="%Y/%m/%d-%T: "
 source /etc/profile
 
 #Run a mysql query from Bash CLI via database user with password auth:
-mysql -u dbusername -p -D dbname -e 'SELECT * FROM table WHERE column IS condition OR othercolumn != value' > output.txt
+mysql -u dbusername -p -D dbname -e 'SELECT * FROM table WHERE column IS condition OR othercolumn != value' > /directory/path/output.txt
+
+#Execute a Confluence Server SOAP JSON-RPC API call check:
+https://<instance-name>/rpc/soap-axis/confluenceservice-v2?wsdl
+#Rename a user with Confluence Server SOAP JSON-RPC API call:
+curl --user "auth username":"auth password" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"jsonrpc":"2.0", "method":"renameUser", "params":["username_being_renamed", "new_username"], "id":13}' https://<instance-URL>/rpc/json-rpc/confluenceservice-v2?os_authType=basic
 
 
 
