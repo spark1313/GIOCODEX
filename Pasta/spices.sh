@@ -72,6 +72,7 @@ or
 \copy (SELECT * FROM table_name) to 'C:\directory\path\file.csv' with csv
 
 #Import a CSV into a PostgreSQL database table:
+COPY table_name(column1_name, column2_name, column3_name) FROM '/directory/path/file.csv' WITH DELIMITER ',' CSV HEADER;
 
 #Enable a versioned software in Amazon Linux:
 amazon-linux-extras enable postgresql14
