@@ -68,6 +68,10 @@ pg_dump databasenamegoeshere > databasenamegoeshere-backup-YY.MM.DD.sql
 
 #Export a PostgreSQL database table to CSV:
 COPY table_name TO '/directory/path/file.csv' WITH DELIMITER ',' CSV HEADER;
+or
+\copy (SELECT * FROM table_name) to 'C:\directory\path\file.csv' with csv
+
+#Import a CSV into a PostgreSQL database table:
 
 #Enable a versioned software in Amazon Linux:
 amazon-linux-extras enable postgresql14
