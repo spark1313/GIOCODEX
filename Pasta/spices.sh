@@ -96,7 +96,8 @@ https://<instance-name>/rpc/soap-axis/confluenceservice-v2?wsdl
 #Rename a user with Confluence Server SOAP JSON-RPC API call:
 curl --user "auth username":"auth password" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"jsonrpc":"2.0", "method":"renameUser", "params":["username_being_renamed", "new_username"], "id":13}' https://<instance-URL>/rpc/json-rpc/confluenceservice-v2?os_authType=basic
 
-
+#Add the current date to a filename in Linux: (insert inline)
+$(date +"%Y.%m.%d")
 
 
 #Shell hotkeys:
