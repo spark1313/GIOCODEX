@@ -96,8 +96,18 @@ https://<instance-name>/rpc/soap-axis/confluenceservice-v2?wsdl
 #Rename a user with Confluence Server SOAP JSON-RPC API call:
 curl --user "auth username":"auth password" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"jsonrpc":"2.0", "method":"renameUser", "params":["username_being_renamed", "new_username"], "id":13}' https://<instance-URL>/rpc/json-rpc/confluenceservice-v2?os_authType=basic
 
-#Add the current date to a filename in Linux: (insert inline)
-$(date +"%Y.%m.%d")
+#Insert the current date to a filename in Linux: (insert inline)
+/directory/path/file-name-$(date +"%Y.%m.%d").txt
+
+#SQL to add text to cells: 
+UPDATE tablename SET columnname = CONCAT(columnname, "string") WHERE condition IS status;
+
+#SQL to convert a column to lower case:
+UPDATE tablename SET columnname = LOWER(othercolumnname);
+
+#SQL to find cells which contain a specific string:
+SELECT * FROM tablename WHERE columnname LIKE "%stringname%";
+
 
 
 #Shell hotkeys:
