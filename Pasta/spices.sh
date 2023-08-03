@@ -43,37 +43,6 @@ ls | awk ' {print $NF}'
 #Compute hashes in Windows:
 certutil -hashfile file_name SHA512
 
-#When upgrading from PostgreSQL 9.2 to a newer version via pg_upgrade, apply this fix to patch the new unix_socket_directories variable name into the old binary which used unix_socket_directory to let pg_upgrade work properly
-mv /var/lib/pgsql/bin-pg9/pg_ctl{,-orig}
-echo '#!/bin/bash' > /var/lib/pgsql/bin-pg9/pg_ctl
-echo '"$0"-orig "${@/unix_socket_directory/unix_socket_directories}"' >> /var/lib/pgsql/bin-pg9/pg_ctl
-chmod +x /var/lib/pgsql/bin-pg9/pg_ctl
-
-#Upgrade a PostgreSQL database:
-pg_upgrade \
-    -b /var/lib/pgsql/bin-pg9 \
-    -d /var/lib/pgsql/data-pg9 \
-    -D /var/lib/pgsql/data \
-    -B /usr/bin/ \
-    -c
-#-b is for the old bin dir (env var PGBINOLD)
-#-d is for the old config dir (env var PGDATAOLD)
-#-D is for the new config dir (env var PGDATANEW)
-#-B is for the new bin dir (env var PGBINNEW)
-#-c is for pre-upgrade consistency checking only, simply remove this argument when performing for realsies
-
-#Backup a PostgreSQL database:
-sudo su postgres
-pg_dump databasenamegoeshere > databasenamegoeshere-backup-YY.MM.DD.sql
-
-#Export a PostgreSQL database table to CSV:
-COPY table_name TO '/directory/path/file.csv' WITH DELIMITER ',' CSV HEADER;
-or
-\copy (SELECT * FROM table_name) to 'C:\directory\path\file.csv' with csv
-
-#Import a CSV into a PostgreSQL database table:
-COPY table_name(column1_name, column2_name, column3_name) FROM '/directory/path/file.csv' WITH DELIMITER ',' CSV HEADER;
-
 #Enable a versioned software in Amazon Linux:
 amazon-linux-extras enable postgresql14
 
@@ -88,9 +57,6 @@ vi /etc/profile
 Add this environment variable line: HISTTIMEFORMAT="%Y/%m/%d-%T: "
 source /etc/profile
 
-#Run a mysql query from Bash CLI via database user with password auth:
-mysql -u dbusername -p -D dbname -e 'SELECT * FROM table WHERE column IS condition OR othercolumn != value' > /directory/path/output.txt
-
 #Execute a Confluence Server SOAP JSON-RPC API call check:
 https://<instance-name>/rpc/soap-axis/confluenceservice-v2?wsdl
 #Rename a user with Confluence Server SOAP JSON-RPC API call:
@@ -98,16 +64,6 @@ curl --user "auth username":"auth password" -H "Content-Type: application/json" 
 
 #Insert the current date to a filename in Linux: (insert inline)
 /directory/path/file-name-$(date +"%Y.%m.%d").txt
-
-#SQL to add text to cells: 
-UPDATE tablename SET columnname = CONCAT(columnname, "string") WHERE condition IS status;
-
-#SQL to convert a column to lower case:
-UPDATE tablename SET columnname = LOWER(othercolumnname);
-
-#SQL to find cells which contain a specific string:
-SELECT * FROM tablename WHERE columnname LIKE "%stringname%";
-
 
 
 #Shell hotkeys:
