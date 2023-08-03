@@ -24,3 +24,8 @@ mv /var/lib/pgsql/bin-pg9/pg_ctl{,-orig}
 echo '#!/bin/bash' > /var/lib/pgsql/bin-pg9/pg_ctl
 echo '"$0"-orig "${@/unix_socket_directory/unix_socket_directories}"' >> /var/lib/pgsql/bin-pg9/pg_ctl
 chmod +x /var/lib/pgsql/bin-pg9/pg_ctl
+
+#Run a mysql query from Bash CLI via database user with password auth:
+mysql -u dbusername -p -D dbname -e 'SELECT * FROM table WHERE column IS condition OR othercolumn != value'
+#Same as above but send output to an external file instead of within the console:
+mysql -u dbusername -p -D dbname -e 'SELECT * FROM table WHERE column IS condition OR othercolumn != value' > /directory/path/output.txt
