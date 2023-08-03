@@ -64,18 +64,3 @@ curl --user "auth username":"auth password" -H "Content-Type: application/json" 
 
 #Insert the current date to a filename in Linux: (insert inline)
 /directory/path/file-name-$(date +"%Y.%m.%d").txt
-
-
-#Shell hotkeys:
-#Go to beginning of line:
-ctrl+a
-#Go to end of line:
-ctrl+e
-
-##Vi hotkeys:
-#Go to top of file:
-gg
-#Go to bottom of file:
-shift+g
-#Delete a line:
-dd
