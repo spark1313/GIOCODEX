@@ -21,6 +21,8 @@ Collection of useful CLI Copy Pastas for quick reference so I don't have to go r
 * Linux CLI using smartctl to check drive SMART stats and run tests
 ### [Drive Wiping](Pasta/zero.sh)
 * Linux CLI commands to wipe a drive and verify
+### [Drive Benchmarking](Pasta/benchmark.sh)
+* How fast does pasta cook? Well, let's run a benchmark. These are commands to run benchmarks on a drive.
 ### [SearchAndDestroy](Pasta/searchAndDestroy.sh)
 * Find files of a certain criteria and delete them
 ### [Sequel](Pasta/sequel.sql)
