@@ -9,16 +9,20 @@ Giomancy spellcraft containing an assortment of knowledge and documented solutio
 # Chapter 2: Pasta
 Collection of useful CLI Copy Pastas for quick reference so I don't have to go read the man page and reinvent them again. Yum! Didn't think this was also a cookbook, did you?
 
+### [Prequel](Pasta/prequel.sh)
+* The prequel to the pasta. Shell commands interacting with SQL DBs which are themselves not direct SQL queries are catalogged here.
 ### [Spices](Pasta/spices.sh)
 * Assortment of useful commands to spice things up but not significant enough to be in their own listing
 ### [Renaming](Pasta/renaming.sh)
 * Linux CLI to selectively rename groups of files
 ### [Smart Testing](Pasta/smart.sh)
 * Linux CLI using smartctl to check drive SMART stats and run tests
-### [Drive Wiping with dd](Pasta/zero.sh)
-* Linux CLI using dd to wipe a drive and verify
+### [Drive Wiping](Pasta/zero.sh)
+* Linux CLI commands to wipe a drive and verify
 ### [SearchAndDestroy](Pasta/searchAndDestroy.sh)
 * Find files of a certain criteria and delete them
+### [Sequel](Pasta/sequel.sql)
+* The sequel to the pasta - you might be a Pastafarian at this point. SQL queries interacting with DBs are catalogged here.
 
 # Chapter 3: Scripture
 Incantations crafted and written into these pages may be read to expedite manual invocation of individual fragments of Giomancy. Different schools of Giomancy have their own sections.
