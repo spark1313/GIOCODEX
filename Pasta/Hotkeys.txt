@@ -1,0 +1,13 @@
+#Shell hotkeys:
+#Go to beginning of line:
+ctrl+a
+#Go to end of line:
+ctrl+e
+
+##Vi hotkeys:
+#Go to top of file:
+gg
+#Go to bottom of file:
+shift+g
+#Delete a line:
+dd
