@@ -1,6 +1,6 @@
 --Export a PostgreSQL database table to CSV:
 COPY table_name TO '/directory/path/file.csv' WITH DELIMITER ',' CSV HEADER;
-or
+--or
 \copy (SELECT * FROM table_name) to 'C:\directory\path\file.csv' with csv
 
 --Import a CSV into a PostgreSQL database table:
