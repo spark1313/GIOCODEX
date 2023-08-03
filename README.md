@@ -22,8 +22,10 @@ Collection of useful CLI Copy Pastas for quick reference so I don't have to go r
 ### [Drive Wiping](Pasta/zero.sh)
 * Linux CLI commands to wipe a drive and verify
 ### [Drive Benchmarking](Pasta/benchmark.sh)
-* How fast does pasta cook? Well, let's run a benchmark. These are commands to run benchmarks on a drive.
-### [SearchAndDestroy](Pasta/searchAndDestroy.sh)
+* How fast does pasta cook? Well, let's run a benchmark. These are commands to run benchmarks on a drive
+### [Drive Recovery](Pasta/ddr.sh)
+* Cookware busted? Can't dance? Try and recover hard drive data with ~~ddr_help~~ dd_rhelp
+### [SeekAndDestroy](Pasta/seekAndDestroy.sh)
 * Find files of a certain criteria and delete them
 ### [Sequel](Pasta/sequel.sql)
 * The sequel to the pasta - you might be a Pastafarian at this point. SQL queries interacting with DBs are catalogged here
