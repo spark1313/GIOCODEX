@@ -64,3 +64,6 @@ curl --user "auth username":"auth password" -H "Content-Type: application/json" 
 
 #Insert the current date to a filename in Linux: (insert inline)
 /directory/path/file-name-$(date +"%Y.%m.%d").txt
+
+#Check what shell you are running:
+echo $SHELL / echo $0
