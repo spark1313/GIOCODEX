@@ -34,3 +34,7 @@ Open a shell and copy the nvram from the old VM into the target VM
  Example: cp /etc/libvirt/qemu/nvram/###########OLD#############_VARS-pure-efi.fd /etc/libvirt/qemu/nvram/###########NEW#############_VARS-pure-efi.fd
 Boot up the new VM
 Revert VMs share to read-only
+
+#How to SSH into your local VirtualBox VM:
+Add a port forward in the Network tab of Guest port 22 to Host Port 2222
+SSH into your VM via user@127.0.0.1:2222
