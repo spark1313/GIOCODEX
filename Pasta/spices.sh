@@ -26,7 +26,7 @@ wget -O notavirus.zip.jpg.exe https://URL.domain/file.zip --progress=bar:force:n
 history | grep keyword
 
 #Make an alias: (add these in your shell's source file such as /etc/profile for all users bash)
-alias ll="ls -lah"
+alias ll="ls -lath"
 
 #Make a symlink:
 ln -s /path/where/shortcut/goes shortcut
