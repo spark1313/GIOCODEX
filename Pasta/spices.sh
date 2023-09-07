@@ -69,4 +69,4 @@ curl --user "auth username":"auth password" -H "Content-Type: application/json" 
 echo $SHELL / echo $0
 
 #Tar gzip a directory:
-tar -czfv /targetpath/file.tgz /sourcepath/directory
+tar -czf /targetpath/file.tgz /sourcepath/directory
