@@ -73,3 +73,6 @@ tar -czf /targetpath/file.tgz /sourcepath/directory
 
 #Count number of files and directories in a directory:
 ls | wc -l
+
+#Change part of a filename for multiple files in a directory:
+for file in filenames-old-* ; do mv $file ${file//filenames-old/filenames-new} ; done
