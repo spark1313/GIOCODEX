@@ -70,3 +70,6 @@ echo $SHELL / echo $0
 
 #Tar gzip a directory:
 tar -czf /targetpath/file.tgz /sourcepath/directory
+
+#Count number of files and directories in a directory:
+ls | wc -l
