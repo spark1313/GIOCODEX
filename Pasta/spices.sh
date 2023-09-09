@@ -76,3 +76,10 @@ ls | wc -l
 
 #Change part of a filename for multiple files in a directory:
 for file in filenames-old-* ; do mv $file ${file//filenames-old/filenames-new} ; done
+
+#List files in a directory but show the size of directories not as just 4.0K but as the size of all of their recursive files: (pick one)
+find . -maxdepth 1 -printf "%M %u %g %kKB %T+ %p\n" | sort | column -t
+find . -maxdepth 1 -printf "%M %u %g %T+ " -exec du -h {} \; | column -t | sort
+(du -h --max-depth=1; ls -lh) | awk '{ if($1 == "total") {X = 1} else if (!X) {SIZES[$2] = $1} else { sub($5 "[ ]*", sprintf("%-7s ", SIZES["./" $9]), $0); print $0} }' | column -t
+(du -h --max-depth=1; ls -lh) | awk '{ if($1 == "total") {X = 1} else if (!X) {SIZES[$2] = $1} else { printf("%11s %4s %-6s %-6s %7s %3s %2s %5s %s\n", $1, $2, $3, $4, SIZES["./" $9], $6, $7, $8, $9) } }' | sort --key=5,5h
+ls -l | gawk 'substr($1,1,1)=="d"{("du -bs " $NF) | getline size split(size,size_) sub($5,size_[1],$5)} { printf "%s %2s %s %s %10s %s %s %s %s\n",$1,$2,$3,$4,$5,$6,$7,$8,$9}' | column -t
