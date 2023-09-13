@@ -83,3 +83,6 @@ find . -maxdepth 1 -printf "%M %u %g %T+ " -exec du -h {} \; | column -t | sort
 (du -h --max-depth=1; ls -lh) | awk '{ if($1 == "total") {X = 1} else if (!X) {SIZES[$2] = $1} else { sub($5 "[ ]*", sprintf("%-7s ", SIZES["./" $9]), $0); print $0} }' | column -t
 (du -h --max-depth=1; ls -lh) | awk '{ if($1 == "total") {X = 1} else if (!X) {SIZES[$2] = $1} else { printf("%11s %4s %-6s %-6s %7s %3s %2s %5s %s\n", $1, $2, $3, $4, SIZES["./" $9], $6, $7, $8, $9) } }' | sort --key=5,5h
 ls -l | gawk 'substr($1,1,1)=="d"{("du -bs " $NF) | getline size split(size,size_) sub($5,size_[1],$5)} { printf "%s %2s %s %s %10s %s %s %s %s\n",$1,$2,$3,$4,$5,$6,$7,$8,$9}' | column -t
+
+#Override TMOUT timeout environment variable when set to readonly:
+exec env TMOUT=0 bash
