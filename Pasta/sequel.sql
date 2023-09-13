@@ -3,7 +3,6 @@
 --Return to outputting query results in the shell
 \o
 
-  
 --Export a PostgreSQL database table to CSV:
 COPY table_name TO '/directory/path/file.csv' WITH DELIMITER ',' CSV HEADER;
 --or
