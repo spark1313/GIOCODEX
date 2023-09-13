@@ -1,3 +1,9 @@
+--Send output from postgres to external file instead of within the console: (Run this command first then the query to output)
+\o /var/lib/pgsql/file.txt
+--Return to outputting query results in the shell
+\o
+
+  
 --Export a PostgreSQL database table to CSV:
 COPY table_name TO '/directory/path/file.csv' WITH DELIMITER ',' CSV HEADER;
 --or
