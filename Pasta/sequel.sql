@@ -19,3 +19,6 @@ UPDATE tablename SET columnname = LOWER(othercolumnname);
 
 --SQL to find cells which contain a specific string:
 SELECT * FROM tablename WHERE columnname LIKE "%stringname%";
+
+--Only list a certain number of rows from a long table
+SELECT * from tablename limit 5;
