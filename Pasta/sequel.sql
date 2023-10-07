@@ -22,3 +22,9 @@ SELECT * FROM tablename WHERE columnname LIKE "%stringname%";
 
 --Only list a certain number of rows from a long table
 SELECT * from tablename limit 5;
+
+--Dry-run or error check your statement before running it:
+BEGIN;
+test command goes here;
+--Then run either COMMIT; or ROLLBACK; below where COMMIT actually performs the changes since BEGIN; and ROLLBACK; ignores any changes since BEGIN;
+ROLLBACK; COMMIT;
