@@ -89,3 +89,53 @@ exec env TMOUT=0 bash
 
 #How to transfer files from Windows to Linux using just Putty via cmd:
 pscp "C:\path\dir\file.extension" userid@server_name:/path/destination/directory/file.extension
+
+#List currently running kernel version
+uname -r
+
+#Update grub:
+grub2-mkconfig -o /boot/grub2/grub.cfg
+#EFI update grub:
+grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+
+#Run a jar
+java -jar /dir/path/file.jar
+
+#Open xkill:
+ctrl+alt+escape
+#Kill a thing
+killall plasmashell
+#Restart plasma shell
+kstart plasmashell
+
+#DNF package manager:
+#Update:
+dnf update
+#Upgrade OS:
+dnf upgrade
+#Uninstall:
+dnf remove packagename
+#Upgrade a package:
+dnf upgrade packagename
+#Update a package
+dnf update packagename
+#List if packages installed:
+dnf list packagename
+#List packages by repository
+dnf repository-packages repositoryname info
+#Install package:
+dnf install packagename
+#Install package specific version
+dnf install packagename-version-release
+#Download RPM for package without installing it:
+dnf download packagename
+#List Desktops Could Install:
+dnf grouplist -v
+#Install new desktop:
+dnf install @mate-desktop-environment
+#Install new desktop applications:
+dnf install @mate-applications
+#Clean cache:
+dnf clean all
+#Search for a package:
+dnf search packagename
