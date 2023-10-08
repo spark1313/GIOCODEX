@@ -101,6 +101,20 @@ grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 #Run a jar
 java -jar /dir/path/file.jar
 
+#fstab config for mounting a CIFS share
+//10.0.0.1/smbshare /mnt/cifsshare cifs credentials=/etc/samba/.smbcredentials,username=smbusername,uid=osusername,gid=root,rw,file_mode=0777,dir_mode=0777,_netdev 0 0
+
+#Install a DE GUI:
+yum groupinstall gnome-desktop x11 fonts -y
+systemctl set-default graphical.target
+reboot
+
+#Set hostname:
+hostnamectl set-hostname hostname --static
+
+#Add alternative package repos to RHEL based systems:
+yum install epel
+
 #Open xkill:
 ctrl+alt+escape
 #Kill a thing
@@ -139,3 +153,9 @@ dnf install @mate-applications
 dnf clean all
 #Search for a package:
 dnf search packagename
+
+#Yum package manager:
+#Update:
+yum update -y
+#Install package and skip broken:
+yum install -y --skip-broken
