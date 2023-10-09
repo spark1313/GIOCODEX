@@ -28,3 +28,6 @@ BEGIN;
 test command goes here;
 --Then run either COMMIT; or ROLLBACK; below where COMMIT actually performs the changes since BEGIN; and ROLLBACK; ignores any changes since BEGIN;
 ROLLBACK; COMMIT;
+
+--Gather all info about a table:
+\d+ tablename
