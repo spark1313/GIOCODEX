@@ -2,6 +2,12 @@
 sudo su postgres
 pg_dump databasenamegoeshere > /path/dbname-backup-$(date +"%Y-%m-%d").sql
 
+#Create a postgres database:
+createdb -E UTF8 -T template0 dbname
+
+#Import into a postgres database:
+psql dbname < db-backup.sql
+
 #Backup a MySQL database:
 sudo su
 mysqldump -u dbuser -p dbname > /path/dbname-backup-$(date +"%Y-%m-%d").sql
