@@ -1,3 +1,6 @@
+--Grant database permission to a user:
+GRANT ALL PRIVILEGES ON DATABASE dbname to dbusername;
+
 --Send output from postgres to external file instead of within the console: (Run this command first then the query to output)
 \o /var/lib/pgsql/file.txt
 --Return to outputting query results in the shell
@@ -31,3 +34,9 @@ ROLLBACK; COMMIT;
 
 --Gather all info about a table:
 \d+ tablename
+
+--List all tables:
+\dt
+
+--Quit psql:
+\q
