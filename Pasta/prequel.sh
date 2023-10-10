@@ -6,7 +6,7 @@ pg_dump databasenamegoeshere > /path/dbname-backup-$(date +"%Y-%m-%d").sql
 createdb -E UTF8 -T template0 dbname
 
 #Import into a postgres database:
-psql dbname < db-backup.sql
+psql dbname < /path/db-backup.sql
 
 #Backup a MySQL database:
 sudo su
