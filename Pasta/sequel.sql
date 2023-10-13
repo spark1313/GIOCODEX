@@ -29,6 +29,9 @@ SELECT * from tablename limit 5;
 --SQL to delete rows from a table where a value is duplicated and under a condition:
 DELETE from tablename WHERE column1name = 'value' AND column2name IN (SELECT column2name FROM tablename group by column2name having count (column2name) >1);
 
+--SQL to update values in a table based on values in another table compared to other rows in that table:
+UPDATE table1 SET table1value1 = g.table2value1 FROM table2 g WHERE table1value1 IN (SELECT table1value1 FROM table1 INNER JOIN table2 ON table1.table1value1 = table2.table2value1 WHERE table2.table2value2 = 'value' AND table2.value3 = 'value') AND g.table2value3 = 'value' AND g.table2value2 = 'value';
+
 --Dry-run or error check your statement before running it:
 BEGIN;
 test command goes here;
