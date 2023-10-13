@@ -26,6 +26,9 @@ SELECT * FROM tablename WHERE columnname LIKE "%stringname%";
 --Only list a certain number of rows from a long table
 SELECT * from tablename limit 5;
 
+--SQL to delete rows from a table where a value is duplicated and under a condition:
+DELETE from tablename WHERE column1name = 'value' AND column2name IN (SELECT column2name FROM tablename group by column2name having count (column2name) >1);
+
 --Dry-run or error check your statement before running it:
 BEGIN;
 test command goes here;
