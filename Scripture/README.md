@@ -1,4 +1,4 @@
-# Chapter 3: Scripture
+# Chapter 3: Scripture [Chapter 3: Scripture](Scripture)
 Incantations crafted and written into these pages may be read to expedite manual invocation of individual fragments of Giomancy. Different schools of Giomancy have their own sections.
 
 ### [GIOLED](Scripture/Python/GIOLED.py)
