@@ -26,17 +26,19 @@ Different schools of Giomancy have their own sections.
 
 <br>
 
-## [Section 3: Batch](Batch)  
+## [Section 2: Batch](Batch)  
 
 ### [fileSizeCompare](Scripture/Batch/fileSizeCompare.bat)
 * This is a Batch script which prints a list of file names in a directory and all contained subdirectories which have identical file sizes to other files in those directories/subdirectories so essentially a deduplication discovery
 
 <br>
 
-## [Section 2: Bash](Bash)  
+## [Section 3: Bash](Bash)  
 
 ### [rsync](Bash/rsync.sh)
 * Pre-populated rsync for syncing stuff between servers
+
+<br>
 
 ## [Section 4: JavaScript](JavaScript)  
 
