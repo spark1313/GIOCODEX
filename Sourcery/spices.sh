@@ -69,7 +69,10 @@ curl --user "auth username":"auth password" -H "Content-Type: application/json" 
 echo $SHELL / echo $0
 
 #Tar gzip a directory:
-tar -czf /targetpath/file.tgz /sourcepath/directory
+tar -czvf /target/dir/archive.tar.gz /source/dir
+
+#tar un-gzip a directory:
+tar -xzvf /source/dir/archive.tar.gz -C /target/dir/
 
 #Count number of files and directories in a directory:
 ls | wc -l
