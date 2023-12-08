@@ -90,6 +90,9 @@ ls -l | gawk 'substr($1,1,1)=="d"{("du -bs " $NF) | getline size split(size,size
 #Override TMOUT timeout environment variable when set to readonly:
 exec env TMOUT=0 bash
 
+#Keep a shell session alive which has unreasonably short timeouts:
+while true; do echo -n a; sleep 50; done
+
 #How to transfer files from Windows to Linux using just Putty via cmd:
 pscp "C:\path\dir\file.extension" userid@server_name:/path/destination/directory/file.extension
 
