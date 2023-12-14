@@ -15,5 +15,5 @@ sudo smartctl -t short -d sat /dev/sdc
 #Keep an already started longer test awake if using an external enclosure since they tend to time-out as the disk goes to sleep:
 while true; do sudo smartctl -d sat -c /dev/sdX; sleep 90; done
 
-#Alternative method to start a new SMART long self-test and keep it awake (/dev/sdc in this example) by watching for cumulative updates every 10 minutes:
-sudo watch -d=cumulative -n 10 smartctl -t long -d sat /dev/sdc
+#Alternative method to keep an already started longer test awake (/dev/sdc in this example) by watching for cumulative updates every 90 seconds:
+sudo watch -d=cumulative -n 90 smartctl -d sat -c /dev/sdc
