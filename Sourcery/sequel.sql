@@ -52,3 +52,6 @@ SELECT table1value FROM table1 INNER JOIN table2 on table1.table1value = table2.
 
 --Delete based on values in another table
 DELETE FROM table1 t USING table2 s WHERE t.table1value = s.table2value;
+
+--Rename a database: (Log in via psql -U postgres)
+ALTER DATABASE dbname RENAME TO newdbname
