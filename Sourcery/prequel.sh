@@ -1,3 +1,6 @@
+#Log into a PostgreSQL database
+psql -d dbname -U postgres
+
 #Backup a PostgreSQL database:
 sudo su postgres
 pg_dump databasenamegoeshere > /path/dbname-backup-$(date +"%Y-%m-%d").sql
