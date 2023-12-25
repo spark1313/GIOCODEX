@@ -41,3 +41,9 @@ Revert VMs share to read-only
 #How to SSH into your local VirtualBox VM:
 Add a port forward in the Network tab of Guest port 22 to Host Port 2222
 SSH into your VM via user@127.0.0.1:2222
+
+#First setup procedure for IP cameras without internet access
+1. Turn off wifi or any other potential internet access
+2. Configure a LAN port with a static IP address of 192.168.1.100, default gateway of 192.168.1.1, and netmask of 255.255.255.0
+3. Set up a PoE switch and plug up the computer to the uplink port if there is one
+4. When the camera powers on, open 192.168.1.108 in the browsr and it should bring up the web server for the camera where you can log in with default credentials, which were admin:admin
