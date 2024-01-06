@@ -91,7 +91,7 @@ ls -l | gawk 'substr($1,1,1)=="d"{("du -bs " $NF) | getline size split(size,size
 exec env TMOUT=0 bash
 
 #Keep a shell session alive which has unreasonably short timeouts:
-while true; do echo -n 'cant touch this '; sleep 50; done
+while true; do echo -n 'ha'; sleep 50; done
 
 #How to transfer files from Windows to Linux using just Putty via cmd:
 pscp "C:\path\dir\file.extension" userid@server_name:/path/destination/directory/file.extension
