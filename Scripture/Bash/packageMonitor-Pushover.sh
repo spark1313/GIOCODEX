@@ -20,7 +20,7 @@ PACKAGECOUNT=$(echo "$PACKAGES" | wc -l)
 #If there are packages with upgrades waiting, trigger this loop:
 if [ "$PACKAGES" != "" ]; then
         #Send a preformatted silent failsafe curl POST request in the background with one retry attempt, passing the output into /dev/null with the notification parameters passed in and variables inserted:
-        curl -fs -o /dev/null 2>&1 --retry 1 -F "token=${APPTOKEN}" -F "user=${USERTOKEN}" -F "title=${TITLE}" -F "message=${MESSAGE}" "https://api.pushover.net/1/messages.json" &> /dev/null
+        curl -fs -o /dev/null 2>&1 --retry 1 -F "token=${APPTOKEN}" -F "user=${USERTOKEN}" -F "title=$PACKAGECOUNT packages awaiting updates on ${HOSTNAME}" -F "message=Packages awaiting updates: $PACKAGES" "https://api.pushover.net/1/messages.json" &> /dev/null
 fi
 
 #If there are packages which have already been installed but are awaiting reboot, trigger this loop as well:
