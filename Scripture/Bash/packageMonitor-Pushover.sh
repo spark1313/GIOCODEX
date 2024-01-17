@@ -1,9 +1,10 @@
 #!/bin/bash
 #############
 #Notes:
-#1. This script is intended for systems which use apt-get as a package manager and if your system uses a different package manager you must tune the script for it to work
+#1. Call this script via cron job
 #2. Make the script executable via chmod a+x
-#3. This script can be easily adapted for other notification services by editing the curl line to pass any differences in parameters and adding in any new variables or tokens if needed
+#3. This script is intended for systems which use apt-get as a package manager and if your system uses a different package manager you must tune the script for it to work
+#4. This script can be easily adapted for other notification services by editing the curl line to pass any differences in parameters and adding in any new variables or tokens if needed
 #Ref:
 #1. https://www.reddit.com/r/selfhosted/comments/bqt6eu/comment/eoa8txx/
 #############
