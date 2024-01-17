@@ -20,7 +20,7 @@ PACKAGECOUNT=$(echo "$PACKAGES" | wc -l)
 #If there are packages with upgrades waiting, trigger this loop:
 if [ "$PACKAGES" != "" ]; then
         #Send a preformatted silent failsafe curl POST request in the background with one retry attempt, passing the output into /dev/null with the notification parameters passed in and variables inserted:
-        curl -X POST -fs -o /dev/null 2>&1 --retry 1 -F "title=$PACKAGECOUNT packages awaiting updates on ${HOSTNAME}" -F "message=Packages awaiting updates: $PACKAGES" -F "priority=7" "https://${BASEURL}/message?token=${TOKEN}" #&> /dev/null
+        curl -X POST -fs -o /dev/null 2>&1 --retry 1 -F "title=$PACKAGECOUNT packages awaiting updates on ${HOSTNAME}" -F "message=Packages awaiting updates: $PACKAGES" -F "priority=7" "https://${BASEURL}/message?token=${TOKEN}" &> /dev/null
 fi
 
 #If there are packages which have already been installed but are awaiting reboot, trigger this loop as well:
@@ -30,5 +30,5 @@ if [ -f /var/run/reboot-required ]; then
         REBOOTREQPACKAGECOUNT=$(echo "$REBOOTREQPACKAGES" | wc -l)
 
         #Send a preformatted silent failsafe curl POST request in the background with one retry attempt, passing the output into /dev/null with the notification parameters passed in and variables inserted:
-        curl -X POST -fs -o /dev/null 2>&1 --retry 1 -F "title=$REBOOTREQPACKAGECOUNT packages installed on ${HOSTNAME} awaiting reboot" -F "message=Packages awaiting reboot: $REBOOTREQPACKAGES" -F "priority=7" "https://${BASEURL}/message?token=${TOKEN}" #&> /dev/null
+        curl -X POST -fs -o /dev/null 2>&1 --retry 1 -F "title=$REBOOTREQPACKAGECOUNT packages installed on ${HOSTNAME} awaiting reboot" -F "message=Packages awaiting reboot: $REBOOTREQPACKAGES" -F "priority=7" "https://${BASEURL}/message?token=${TOKEN}" &> /dev/null
 fi
