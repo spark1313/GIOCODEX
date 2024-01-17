@@ -22,6 +22,9 @@ wget -O notavirus.zip.jpg.exe https://URL.domain/file.zip --progress=bar:force:n
 #Where yum repos are located:
 /etc/yum.repos.d
 
+#Set timezone:
+sudo timedatectl set-timezone America/New_York
+
 #Find that one thing you typed that one time but only vaguely remember part of it:
 history | grep keyword
 
