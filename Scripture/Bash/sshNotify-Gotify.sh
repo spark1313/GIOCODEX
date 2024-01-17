@@ -36,7 +36,7 @@ if [ -n "$SSH_CLIENT" ]; then
                 #Define the message content string, passing in crafted variables:
                 MESSAGE="${USER} logged in via SSH on ${HOSTNAME} at $SERVERIP over port $PORT from $CLIENTIP on $LOGINTIME"
                 #Send a preformatted silent failsafe curl POST request in the background with one retry attempt, passing the output into /dev/null with the notification parameters passed in and variables inserted:
-                curl -X POST -fs -o /dev/null 2>&1 --retry 1 -F "title=${TITLE}" -F "message=${MESSAGE}" -F "priority=7" "https://${BASEURL}/message?token=${TOKEN}" &
+                curl -X POST -fs -o /dev/null 2>&1 --retry 1 -F "title=${TITLE}" -F "message=${MESSAGE}" -F "priority=7" "https://${BASEURL}/message?token=${TOKEN}" &> /dev/null
         #fye fo fum
         fi
 #End the if loops:
