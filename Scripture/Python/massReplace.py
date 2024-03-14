@@ -1,18 +1,18 @@
 ###################################
 #Summary:
-#This script does a mass find and replace on a text file from the columns of a csv
+#This script does a bulk find and replace on a text file from the columns of a csv
 #The script expects two parameters being the filename of the text file to find and replace and the filename of a two column csv file WITHOUT headers with the text to find in the left column and the text to replace it with in the right column
 ###################################
 
 #Import libraries:
-import sys, csv, argparse
+import os, sys, csv, argparse
 
 #Open the text file with the file name of the first parameter as read+write at beginning of file
 textfile = open(str(sys.argv[1]), "r", encoding='utf-8')
 #Open the csv file with the file name of the second parameter as read only
 csvfile = open(str(sys.argv[2]), 'r', encoding='utf-8')
-#Open output file to write to and create if it does not yet exist which it shouldn't
-outputfile = str(os.path.splitext(str(sys.argv[1])[0] + "_replaced" + str(os.path.splitext(str(sys.argv[1])[1])
+#Open output file to write to with the same name as the source file but with "_replaced" appended to the filename, and create if it does not yet exist
+outputfile = open(str(os.path.splitext(str(sys.argv[1]))[0]) + "_replaced" + str(os.path.splitext(str(sys.argv[1]))[1]), "w", encoding='utf-8')
 
 #Declare array variables for finds and replaces
 strings = []
