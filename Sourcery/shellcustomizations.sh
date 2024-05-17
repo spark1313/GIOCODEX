@@ -3,6 +3,6 @@
 #If updating the file, you will need to re-source the file for it to apply before a reboot via 'source /etc/profile'
 alias ll="ls -lath"
 alias l="ls -l"
-alias ..='cd ..'
-alias updateall='sudo flatpak update && sudo snap refresh && sudo apt upgrade'
+alias ..="cd .."
+alias updateall="sudo flatpak update && sudo snap refresh && sudo apt upgrade"
 neofetch
