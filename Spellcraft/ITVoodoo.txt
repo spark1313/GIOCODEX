@@ -47,3 +47,16 @@ SSH into your VM via user@127.0.0.1:2222
 2. Configure a LAN port with a static IP address of 192.168.1.100, default gateway of 192.168.1.1, and netmask of 255.255.255.0
 3. Set up a PoE switch and plug up the computer to the uplink port if there is one
 4. When the camera powers on, open 192.168.1.108 in the browsr and it should bring up the web server for the camera where you can log in with default credentials, which were admin:admin
+
+#If your KDE shell crashes/freezes but you can still use a terminal, do the following to restart the KDE shell:
+killall plasmashell
+kstart plasmashell
+
+#To make a start menu entry for an application in Linux:
+Create a .desktop shortcut file in /usr/share/applications/ or /usr/local/share/applications/ for applications installed system-wide, or ~/.local/share/applications/ for user-specific applications
+User entries take precedence over system entries
+Use an existing shortcut file to snip out the relevant configuration to fill in
+
+#To make an application autostart in Linux:
+Create a .desktop shortcut file in ~/.config/autostart or a symlink in that folder to an existing .desktop file
+Use an existing shortcut file to snip out the relevant configuration to fill in
