@@ -14,8 +14,8 @@
 #############
 
 #Porkbun API Endpoints (these don't change unless they change their API endpoints)
-DNSENDPOINT="https://porkbun.com/api/json/v3/dns/editByNameType"
-PINGENDPOINT="https://porkbun.com/api/json/v3/ping"
+DNSENDPOINT="https://api.porkbun.com/api/json/v3/dns/editByNameType"
+PINGENDPOINT="https://api.porkbun.com/api/json/v3/ping"
 
 #Edit these variables to include your values
 APIKEY="pk1_apikeygoeshere"
