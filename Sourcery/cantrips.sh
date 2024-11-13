@@ -37,6 +37,9 @@ ln -s /path/where/shortcut/goes shortcut
 #Rsync push to transfer files between Linux systems or Windows and Linux via SSH:
 rsync -vP --rsh=ssh <filename>.<extension> <target username>@<target hostname>:/path/to/target/directory/<filename>.<extension>
 
+#Pull files from remote Linux filesystem via scp:
+scp -r -i /home/username/.ssh/key.ppk username@IPADDR:/home/username/path/to/source /home/username/Desktop/
+
 #Do math in the terminal so you dont have to open a calculator to do quick math: (make sure you put spaces between the numbers)
 expr 13 + 13
 
