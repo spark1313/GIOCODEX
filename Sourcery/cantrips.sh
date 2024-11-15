@@ -124,6 +124,10 @@ reboot
 #Set hostname:
 hostnamectl set-hostname hostname --static
 
+#Generate your own RSA private key and SSL/TLS self-signed cert pair:
+openssl genrsa -out name.key 4096
+openssl req -x509 -new -nodes -key name.key -sha256 -days 365 -out name.pem
+
 #Add alternative package repos to RHEL based systems:
 yum install epel
 
@@ -133,6 +137,8 @@ ctrl+alt+escape
 killall plasmashell
 #Restart plasma shell
 kstart plasmashell
+#Restart x11 window manager
+kwin_x11 --replace && disown $!
 
 #DNF package manager:
 #Update:
