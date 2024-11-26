@@ -116,17 +116,24 @@ java -jar /dir/path/file.jar
 #fstab config for mounting a CIFS share
 //10.0.0.1/smbshare /mnt/cifsshare cifs credentials=/etc/samba/.smbcredentials,username=smbusername,uid=osusername,gid=root,rw,file_mode=0777,dir_mode=0777,_netdev 0 0
 
-#Install a DE GUI:
-yum groupinstall gnome-desktop x11 fonts -y
-systemctl set-default graphical.target
-reboot
-
 #Set hostname:
 hostnamectl set-hostname hostname --static
 
 #Generate your own RSA private key and SSL/TLS self-signed cert pair:
 openssl genrsa -out name.key 4096
 openssl req -x509 -new -nodes -key name.key -sha256 -days 365 -out name.pem
+
+#Excel one-liner conversion from Epoch time: (Replace A1 with your timestamp cell)
+=((((LEFT(A1,10) & "." & RIGHT(A1,3))/60)/60)/24)+DATE(1970,1,1)
+
+
+
+
+
+#Install a DE GUI:
+yum groupinstall gnome-desktop x11 fonts -y
+systemctl set-default graphical.target
+reboot
 
 #Add alternative package repos to RHEL based systems:
 yum install epel
