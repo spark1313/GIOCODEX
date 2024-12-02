@@ -1,0 +1,25 @@
+[Unit]
+Description=WoW Private Server Mangosd
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/vmangos/bin
+User=username
+Type=simple
+Restart=on-failure
+
+ExecStart=/usr/bin/screen -DmS mangosd /opt/vmangos/bin/mangosd -c /opt/vmangos/etc/mangosd.conf
+
+ExecReload=/usr/bin/screen -S mangosd -p 0 -X stuff 'server shutdown 30\n'
+ExecReload=/bin/sleep 37
+ExecReload=/usr/bin/screen -S mangosd -p 0 -X stuff 'server exit\n'    
+ExecReload=/bin/sleep 7
+ExecReload=/usr/bin/screen -DmS mangosd /opt/vmangos/bin/mangosd -c /opt/vmangos/etc/mangosd.conf
+
+ExecStop=/usr/bin/screen -S mangosd -p 0 -X stuff 'server shutdown 30\n'
+ExecStop=/bin/sleep 37
+ExecStop=/usr/bin/screen -S mangosd -p 0 -X stuff 'server exit\n'
+ExecStop=/bin/sleep 7
+
+[Install]
+WantedBy=multi-user.target
