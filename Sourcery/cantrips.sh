@@ -126,9 +126,15 @@ openssl req -x509 -new -nodes -key name.key -sha256 -days 365 -out name.pem
 #Excel one-liner conversion from Epoch time: (Replace A1 with your timestamp cell)
 =((((LEFT(A1,10) & "." & RIGHT(A1,3))/60)/60)/24)+DATE(1970,1,1)
 
+#List all screen sessions for the current user:
+screen -ls
+#Reattach detatched screen session for the current user:
+screen -r sessionname
+#List all screen sessions for all users:
+ls -laR /var/run/screen/
 
-
-
+#Move all files which match a filename in a source text document to a subfolder:
+mv $(ls | egrep -f sourcefilenames.txt) ./found/
 
 #Install a DE GUI:
 yum groupinstall gnome-desktop x11 fonts -y
