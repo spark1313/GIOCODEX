@@ -1,0 +1,19 @@
+[Unit]
+Description=WoW Private Server Realmd
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/vmangos/bin
+User=username
+Type=simple
+Restart=on-failure
+
+ExecStart=/usr/bin/screen -DmS realmd /opt/vmangos/bin/realmd -c /opt/vmangos/etc/realmd.conf
+
+ExecReload=/bin/kill -s INT $MAINPID
+ExecReload=/usr/bin/screen -DmS realmd /opt/vmangos/bin/realmd -c /opt/vmangos/etc/realmd.conf
+
+ExecStop=/bin/kill -s INT $MAINPID
+
+[Install]
+WantedBy=multi-user.target
