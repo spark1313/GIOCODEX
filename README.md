@@ -13,4 +13,5 @@ Different schools of Giomancy have their own sections.
 
 ## [Appendix](appendix.txt)
 The appendix written by my first apprentice as they began to dabble into spellcraft.<br>
-You notice some text scrawled towards the beginning that appears to be an incantation of some kind: _Papiu Rousheept Zhibuden Crackle Fexlik_
+You notice some text scrawled towards the beginning that appears to be an incantation of some kind:<br>
+_Papiu Rousheept Zhibuden Crackle Fexlik_
