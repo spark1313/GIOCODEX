@@ -128,6 +128,8 @@ openssl req -x509 -new -nodes -key name.key -sha256 -days 365 -out name.pem
 
 #List all screen sessions for the current user:
 screen -ls
+#Detatch screen session:
+ctrl+a then push the d key
 #Reattach detatched screen session for the current user:
 screen -r sessionname
 #List all screen sessions for all users:
