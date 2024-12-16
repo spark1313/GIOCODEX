@@ -12,10 +12,10 @@ BASEURL='notify.domain.com'
 TOKEN='H4HG0771M'
 
 #Define the path where planning to save the backup
-SAVEPATH='/mnt/user/share/Backups/Application/DB/$(date +"%Y.%m.%d")'
+SAVEPATH='/mnt/user/share/Backups/Application/DB/'
 
 #First create the directory in case it goes not yet exist
-mkdir $SAVEPATH
+mkdir -p $SAVEPATH
 
 #Run the backup from within the corresponding docker container
 docker exec mariadb mysqldump -h $DBHOST -u $DBUSER -p$DBUSERPW $DBNAME > $SAVEPATH/application-db-backup-$(date +"%Y.%m.%d").sql
