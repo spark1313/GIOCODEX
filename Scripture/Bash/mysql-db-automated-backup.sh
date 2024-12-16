@@ -1,5 +1,5 @@
 #!/bin/bash
-#This is desifgned to be ran via Unraid Custom User Scripts on MariaDB docker container databases
+#This is designed to be ran via Unraid Custom User Scripts on MariaDB docker container databases
 
 #Define info about the mariadb/mysql database backing up
 DBHOST='192.168.IP.ADDR'
