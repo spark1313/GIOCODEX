@@ -55,3 +55,11 @@ DELETE FROM table1 t USING table2 s WHERE t.table1value = s.table2value;
 
 --Rename a database: (Log in via psql -U postgres)
 ALTER DATABASE dbname RENAME TO newdbname;
+
+--MySQL connection erroring out due to too many connection attempts:
+--In the database, run this to temporarily resolve the problem:
+FLUSH HOSTS;
+--In the database, run this to show which variables control the limit:
+SHOW variables like "max_connect%";
+--In the database, run this to set the limits to a higher value: (run for both variables found but only one displayed below)
+SET GLOBAL max_connect_errors=131313
