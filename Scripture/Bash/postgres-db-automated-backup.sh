@@ -21,4 +21,4 @@ mkdir -p $SAVEPATH
 docker exec postgresql14 pg_dump -h $DBHOST -U $DBUSER $DBNAME > $SAVEPATH/application-db-backup-$(date +"%Y.%m.%d").sql
 
 #OPTIONAL: Send a Gotify notification on script execution
-curl -X POST -fs -o /dev/null 2>&1 --retry 1 -F "title=$DBNAME database backup script completed" -F "message=$DBNAME database backup completed via automated script and saved to $SAVEPATH" -F "priority=7" "https://${BASEURL}/message?token=${TOKEN}" &> /dev/null
+curl -X POST -fs -o /dev/null 2>&1 --retry 1 -F "title=$DBNAME database backup script completed" -F "message=$DBNAME database backup completed from $DBHOST via automated script and saved to $SAVEPATH" -F "priority=7" "https://${BASEURL}/message?token=${TOKEN}" &> /dev/null
