@@ -17,7 +17,7 @@ nohup <command> &
 tail -f file.log
 
 #Compare two files via hashing them, if fhe hash result is the same then they are identical:
-ms5sum filename.ext
+md5sum filename.ext
 
 #Download something from the web (with the optional -O argument to specify a different filename for the downloaded file)
 wget -O notavirus.zip.jpg.exe https://URL.domain/file.zip --progress=bar:force:noscroll
