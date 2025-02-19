@@ -20,8 +20,8 @@ mkdir -p $SAVEPATH
 #Run the backup from within the corresponding docker container
 docker exec mariadb mysqldump -h $DBHOST -u $DBUSER -p$DBUSERPW $DBNAME > $SAVEPATH/application-db-backup-$(date +"%Y.%m.%d").sql
 
-#Get the file size of the DB backup
-DBSIZE=`du -hm $SAVEPATH/characters-logs-db-backup-$(date +"%Y.%m.%d").sql | awk '{print $1}'`
+#OPTIONAL: Get the file size of the DB backup
+DBSIZE=`du -hm $SAVEPATH/application-db-backup-$(date +"%Y.%m.%d").sql | awk '{print $1}'`
 
 #OPTIONAL: Send a Gotify notification on script execution
 curl -X POST -fs -o /dev/null 2>&1 --retry 1 -F "title=$DBNAME database backup script completed" -F "message=$DBNAME database backup completed from $DBHOST via automated script and saved to $SAVEPATH with file size $DBSIZE MB" -F "priority=7" "https://${BASEURL}/message?token=${TOKEN}" &> /dev/null
