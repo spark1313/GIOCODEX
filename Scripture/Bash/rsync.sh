@@ -2,7 +2,7 @@
 sudo mount -t cifs -o username=usernamegoeshere //hostname/sharename /mnt/sharename
 
 #Note: Parameters were chosen for best compatibility with Unraid backup syncing
-sudo rsync -hav --delete --stats --info=progress2 --no-i-r --no-compress /mnt/sharename1/backup-source/ /mnt/sharename2/backup-target/ --log-file=~/Desktop/rsync-log-"$(date +%F)".log
+sudo rsync -hav --delete --stats --info=progress2 --no-i-r --no-compress --exclude='/.Recycle.Bin' /mnt/sharename1/backup-source/ /mnt/sharename2/backup-target/ --log-file=~/Desktop/rsync-log-"$(date +%F)".log
 
 #Explanation of potential useful flags:
 #-a, --archive :: This is equivalent to -rlptgoD. It is a quick way of saying you want recursion and want to preserve almost everything (with -H being a notable omission). The only exception to the above equivalence is when --files-from is specified, in which case -r is not implied. Note that -a does not preserve hardlinks, because finding multiply-linked files is expensive. You must separately specify -H.
@@ -22,3 +22,4 @@ sudo rsync -hav --delete --stats --info=progress2 --no-i-r --no-compress /mnt/sh
 #-t, --times :: This tells rsync to transfer modification times along with the files and update them on the remote system. Note that if this option is not used, the optimization that excludes files that have not been modified cannot be effective; in other words, a missing -t or -a will cause the next transfer to behave as if it used -I, causing all files to be updated (though rsync's delta-transfer algorithm will make the update fairly efficient if the files haven't actually changed, you're much better off using -t). 
 #-c, --checksum :: Compare first size of files and if copy if different and if the same then checksum them to determine whether to skip or copy, this does not include file timestamps in checks so is like an enhanced version of --size-only
 #-no-compress :: Disable all compression to increase speed at the cost of bandwidth
+#--exclude :: This option is a simplified form of the --filter option that defaults to an exclude rule and does not allow the full rule-parsing syntax of normal filter rules. 
