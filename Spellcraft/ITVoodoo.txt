@@ -60,3 +60,6 @@ Use an existing shortcut file to snip out the relevant configuration to fill in
 #To make an application autostart in Linux:
 Create a .desktop shortcut file in ~/.config/autostart or a symlink in that folder to an existing .desktop file
 Use an existing shortcut file to snip out the relevant configuration to fill in
+
+#Command to run when you have an iGPU and dedicated nvidia GPU in Unraid and want to set the iGPU to be the primary GPU to load up the display:
+sed -i "/disable_xconfig=/c\disable_xconfig=true" /boot/config/plugins/nvidia-driver/settings.cfg
