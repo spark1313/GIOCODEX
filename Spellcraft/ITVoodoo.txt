@@ -63,3 +63,17 @@ Use an existing shortcut file to snip out the relevant configuration to fill in
 
 #Command to run when you have an iGPU and dedicated nvidia GPU in Unraid and want to set the iGPU to be the primary GPU to load up the display:
 sed -i "/disable_xconfig=/c\disable_xconfig=true" /boot/config/plugins/nvidia-driver/settings.cfg
+
+#Get rid of Windows 11 start menu unwanted Recommended block:
+Copy this to your text editor, save as .reg, then double click to import:
+
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Start]
+"HideRecommendedSection"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Education]
+"IsEducationEnvironment"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"HideRecommendedSection"=dword:00000001
