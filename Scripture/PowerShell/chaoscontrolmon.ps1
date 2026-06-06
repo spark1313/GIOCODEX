@@ -5,7 +5,7 @@
 # Compatible with Windows 7 (PowerShell 2.0+), Windows 10, Windows 11, and Windows Server.
 # The script is designed to be ran as Administrator and called via Task Scheduler.
 # The script assumes CrystalDiskInfo is installed so calls to its CLI utility (DiskInfo64.exe /CopyExit) can be made to generate a SMART report for parsing.
-# It should be ran with a single argument as the disk number to monitor. For example: '.\chaoscontrolmon-win.ps1 -DiskNumber 0'
+# It should be ran with a single argument as the disk number to monitor. For example: '.\chaoscontrolmon.ps1 -DiskNumber 0'
 # If no argument is supplied, the script defaults to disk 0.
 
 #=================================================================================================================================================
