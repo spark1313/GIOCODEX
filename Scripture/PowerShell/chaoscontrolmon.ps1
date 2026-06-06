@@ -5,14 +5,14 @@
 # Compatible with Windows 7 (PowerShell 2.0+), Windows 10, Windows 11, and Windows Server.
 # The script is designed to be ran as Administrator and called via Task Scheduler.
 # The script assumes CrystalDiskInfo is installed so calls to its CLI utility (DiskInfo64.exe /CopyExit) can be made to generate a SMART report for parsing.
-# It should be ran with a single argument as the disk number to monitor. For example: '.\chaoscontrolmon.ps1 -DiskNumber 0'
-# If no argument is supplied, the script defaults to disk 0.
+# It should be ran with a single argument as the disk number to monitor. For example: '.\chaoscontrolmon-win.ps1 -DiskNumber 0'
+# If no argument is supplied, the script defaults to disk 1.
 
 #=================================================================================================================================================
 
-#Initialize the disk number variable and set to 0 by default:
+#Initialize the disk number variable and set to 1 by default:
 param(
-    [int]$DiskNumber = 0
+    [int]$DiskNumber = 1
 )
 
 #=================================================================================================================================================
@@ -108,7 +108,6 @@ if (-not (Test-Path $DataDir)) {
 #If the previous file does not exist, this is identified as the first run so a snapshot is taken and the script exits:
 if (-not (Test-Path $PreviousFile)) {
     $Current | Out-File -FilePath $PreviousFile -Encoding UTF8
-    Write-Host "First run complete. Baseline saved for disk $DiskNumber ($DiskHeader)."
     exit 0
 }
 
