@@ -66,14 +66,16 @@ sed -i "/disable_xconfig=/c\disable_xconfig=true" /boot/config/plugins/nvidia-dr
 
 #Get rid of Windows 11 start menu unwanted Recommended block:
 Copy this to your text editor, save as .reg, then double click to import:
-
 Windows Registry Editor Version 5.00
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Start]
 "HideRecommendedSection"=dword:00000001
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Education]
 "IsEducationEnvironment"=dword:00000001
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
 "HideRecommendedSection"=dword:00000001
+
+#Find a string in a directory of files in Windows cmd:
+findstr /spin /c:"remote" *.*
+
+#Print the contents of a text file in Windows cmd:
+type filename.txt | more
