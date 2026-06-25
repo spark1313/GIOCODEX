@@ -1,23 +1,33 @@
 #=================================================================================================================================================
-# chaoscontrolmon.ps1
+#chaoscontrolmon.ps1
 #=================================================================================================================================================
-# This PowerShell script was designed to monitor local hard disks on Windows systems and send a Gotify notification so manual review would not be needed.
-# Compatible with Windows 7 (PowerShell 2.0+), Windows 10, Windows 11, and Windows Server.
-# The script is designed to be ran as Administrator and called via Task Scheduler.
-# The script assumes CrystalDiskInfo is installed so calls to its CLI utility (DiskInfo64.exe /CopyExit) can be made to generate a SMART report for parsing.
-# It should be ran with a single argument as the disk number to monitor. For example: '.\chaoscontrolmon.ps1 -DiskNumber 0'
-# If no argument is supplied, the script defaults to disk 1.
+#This PowerShell script was designed to monitor local hard disks on Windows systems and send a Gotify notification so manual review would not be needed.
+#Compatible with Windows 7 (PowerShell 2.0+), Windows 10, Windows 11, and Windows Server.
+#The script assumes CrystalDiskInfo is installed so calls to its CLI utility (DiskInfo64.exe /CopyExit) can be made to generate a SMART report for parsing.
+#It should be ran with a single argument as the disk number to monitor. For example: '.\chaoscontrolmon.ps1 -DiskNumber 0'
+#If no argument is supplied or the specified disk cannot be detected, the script defaults to disk 1.
+#The script is designed to be ran as Administrator and called via Task Scheduler.
+#Example Task Scheduler settings:
+ #Action:
+  #Start a program
+ #Program/script:
+  #cmd.exe
+ #Arguments:
+  #/c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\Storage\Scripts\chaoscontrolmon.ps1" > "C:\ProgramData\chaoscontrolmon\debug.log" 2>&1
+ #Start in (optional):
+  #C:\Storage\Scripts
+#If running directly in Powershell, you may need to first run the following command to unrestrict:
+ #Set-ExecutionPolicy Unrestricted -Scope CurrentUser
+#=================================================================================================================================================
 
 #=================================================================================================================================================
-
+#Variables
+#=================================================================================================================================================
 #Initialize the disk number variable and set to 1 by default:
 param(
     [int]$DiskNumber = 1
 )
 
-#=================================================================================================================================================
-# Variables
-#=================================================================================================================================================
 #This is the directory which saved snapshots are placed for comparison:
 $DataDir = "C:\ProgramData\chaoscontrolmon"
 
@@ -54,10 +64,20 @@ $WatchAttrs = @(
 )
 
 #=================================================================================================================================================
-# SMART Data Collection
+#SMART Data Collection
 #=================================================================================================================================================
-#Run CrystalDiskInfo CLI to generate the report file:
+#Specify per-device baseline file (e.g. disk1.prev.txt, disk2.prev.txt):
+$PreviousFile = Join-Path $DataDir "disk$DiskNumber.prev.txt"
+
+#Create the directory specified if it does not yet exist else do nothing if it does exist:
+if (-not (Test-Path $DataDir)) {
+    New-Item -ItemType Directory -Path $DataDir -Force | Out-Null
+}
+
+#Run CrystalDiskInfo CLI from its own directory to generate the report file:
+Push-Location $CDIPath
 & $CDIExe /CopyExit | Out-Null
+Pop-Location
 
 #Wait briefly for the file to be written:
 Start-Sleep -Seconds 5
@@ -66,8 +86,7 @@ Start-Sleep -Seconds 5
 $FullReport = Get-Content -Path $CDIReport
 
 #Parse out the section for the specified disk number:
-#CrystalDiskInfo separates disks with lines like "----------------------------------------------------------------------------"
-#and headers like " (0) Samsung SSD 870 EVO 1TB" where (0) is the disk number:
+#CrystalDiskInfo separates disks with headers like " (01) Samsung SSD 870 EVO 1TB" where (01) is the disk number:
 $InTargetDisk = $false
 $DiskData = @()
 $DiskHeader = ""
@@ -97,12 +116,32 @@ $Pattern = ($WatchAttrs | ForEach-Object { [regex]::Escape($_) }) -join '|'
 #Filter to only the watched attributes:
 $Current = $DiskData | Where-Object { $_ -match $Pattern }
 
-#Identify previous file for this disk:
-$PreviousFile = Join-Path $DataDir "disk$DiskNumber.prev.txt"
+#If no data was found for the specified disk and it was not disk 1, fall back to disk 1:
+if (-not $Current -and $DiskNumber -ne 1) {
+    $DiskNumber = 1
+    $PreviousFile = Join-Path $DataDir "disk$DiskNumber.prev.txt"
+    $InTargetDisk = $false
+    $DiskData = @()
+    $DiskHeader = ""
 
-#Create the directory specified if it does not yet exist:
-if (-not (Test-Path $DataDir)) {
-    New-Item -ItemType Directory -Path $DataDir -Force | Out-Null
+    foreach ($Line in $FullReport) {
+        if ($Line -match "^\s*\((\d+)\)\s+(.+)$") {
+            $FoundDiskNum = [int]$Matches[1]
+            if ($FoundDiskNum -eq $DiskNumber) {
+                $InTargetDisk = $true
+                $DiskHeader = $Line.Trim()
+                $DiskData += $Line
+                continue
+            } elseif ($InTargetDisk) {
+                break
+            }
+        }
+        if ($InTargetDisk) {
+            $DiskData += $Line
+        }
+    }
+
+    $Current = $DiskData | Where-Object { $_ -match $Pattern }
 }
 
 #If the previous file does not exist, this is identified as the first run so a snapshot is taken and the script exits:
@@ -112,7 +151,7 @@ if (-not (Test-Path $PreviousFile)) {
 }
 
 #=================================================================================================================================================
-# Comparison and Notification
+#Comparison and Notification
 #=================================================================================================================================================
 #Compare current SMART data against previous baseline:
 $Previous = Get-Content -Path $PreviousFile
@@ -122,21 +161,13 @@ $Diff = Compare-Object -ReferenceObject $Previous -DifferenceObject $Current
 if ($Diff) {
     #Format the differences into a readable string:
     $DiffMsg = ($Diff | ForEach-Object {
-        $Indicator = if ($_.SideIndicator -eq "=>") { "[NEW]" } else { "[OLD]" }
+        $Indicator = $(if ($_.SideIndicator -eq "=>") { "[NEW]" } else { "[OLD]" })
         "$Indicator $($_.InputObject)"
     }) -join "`n"
 
-    #Send Gotify notification with the diff:
-    $Body = @{
-        title    = "Chaoscontrolmon: Disk $DiskNumber changed ($DiskHeader)"
-        message  = $DiffMsg
-    }
-    try {
-        Invoke-RestMethod -Uri "https://$GotifyUrl/message?token=$GotifyToken" -Method Post -Body $Body -ErrorAction Stop | Out-Null
-    } catch {
-        Write-Warning "Gotify notification failed: $_"
-    }
-
     #Update baseline with new snapshot:
     $Current | Out-File -FilePath $PreviousFile -Encoding UTF8
+
+    #Send Gotify notification with the diff:
+    curl.exe -X POST -fs -o nul --retry 1 "https://${GotifyUrl}/message?token=${GotifyToken}" -F "title=Chaoscontrolmon: Disk ${DiskNumber} changed (${DiskHeader})" -F "message=${DiffMsg}" 2>&1 | Out-Null
 }
